@@ -6,20 +6,28 @@
     <persistence-unit name="star-wars-pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.esgi.starwars.entity.ESGIVaisseaux</class>
+        <class>com.esgi.starwars.entity.User</class>
+        <class>com.esgi.starwars.entity.Question</class>
+        <class>com.esgi.starwars.entity.Score</class>
         
         <properties>
-            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:starwarsdb;DB_CLOSE_DELAY=-1"/>
-            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/starwars_db?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value=""/>
             
             <!-- Hibernate Properties -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
-            
-            <!-- Force JDBC transaction coordinator to avoid JTA conflict -->
             <property name="hibernate.transaction.coordinator_class" value="jdbc"/>
+
+            <!-- Standard JPA Schema Generation -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+            
+            <!-- EclipseLink Settings (Fallbacks for TomEE default provider) -->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.target-database" value="MySQL"/>
         </properties>
     </persistence-unit>
 </persistence>

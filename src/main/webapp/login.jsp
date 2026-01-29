@@ -32,18 +32,19 @@
                 <p style="margin-bottom: 30px; color: #d4d4d4; text-align: center; font-size: 0.95rem;">Connectez-vous avec vos identifiants pour accéder à la zone d'administration.</p>
             </div>
             
-            <form method="post" action="j_security_check" class="login-form">
+            <form method="post" action="${pageContext.request.contextPath}/auth/login" class="login-form">
                 <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="j_username" style="display: block; margin-bottom: 8px; color: var(--accent-1); font-weight: 600;">👤 Utilisateur:</label>
-                    <input type="text" id="j_username" name="j_username" placeholder="admin" required autofocus style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: white;">
+                    <label for="username" style="display: block; margin-bottom: 8px; color: var(--accent-1); font-weight: 600;">👤 Utilisateur:</label>
+                    <input type="text" id="username" name="username" placeholder="admin" required autofocus style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: white;">
                 </div>
                 
                 <div class="form-group" style="margin-bottom: 30px;">
-                    <label for="j_password" style="display: block; margin-bottom: 8px; color: var(--accent-1); font-weight: 600;">🔒 Mot de passe:</label>
-                    <input type="password" id="j_password" name="j_password" placeholder="••••••••" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: white;">
+                    <label for="password" style="display: block; margin-bottom: 8px; color: var(--accent-1); font-weight: 600;">🔒 Mot de passe:</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: white;">
                 </div>
                 
                 <input type="submit" value="Se connecter" class="btn-primary" style="width: 100%; padding: 12px; font-size: 1rem; cursor: pointer;">
+                <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">Pas encore de compte ? <a href="register.jsp" style="color: var(--accent-1);">S'inscrire</a></p>
             </form>
             
             <div class="footer" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,215,0,0.1);">

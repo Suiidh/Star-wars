@@ -53,20 +53,20 @@
             <a href="/projet-star-wars/" class="nav-link">Accueil</a>
             <a href="/projet-star-wars/vaisseaux" class="nav-link">Catalogue</a>
             <a href="/projet-star-wars/quiz" class="nav-link">Quiz</a>
-            <c:if test="${not empty pageContext.request.userPrincipal}">
+            <c:if test="${not empty sessionScope.user and sessionScope.user.role == 'ADMIN'}">
                 <a href="/projet-star-wars/admin/vaisseaux" class="nav-link" style="color:var(--accent-1)">Admin</a>
             </c:if>
         </div>
         
         <div class="user-area">
-            <c:if test="${not empty pageContext.request.userPrincipal}">
+            <c:if test="${not empty sessionScope.user}">
                 <div class="user-snippet">
-                    <span class="user-name">👤 ${pageContext.request.userPrincipal.name}</span>
-                    <a href="/projet-star-wars/logout" class="logout-link">Déconnexion</a>
+                    <a href="${pageContext.request.contextPath}/profile" class="user-name" style="color:white; text-decoration:none;">👤 ${sessionScope.user.username}</a>
+                    <a href="/projet-star-wars/auth/logout" class="logout-link">Déconnexion</a>
                 </div>
             </c:if>
-            <c:if test="${empty pageContext.request.userPrincipal}">
-                <a href="/projet-star-wars/admin/" class="btn-secondary" style="padding: 5px 15px; font-size: 0.85rem;">Connexion</a>
+            <c:if test="${empty sessionScope.user}">
+                <a href="/projet-star-wars/login.jsp" class="btn-secondary" style="padding: 5px 15px; font-size: 0.85rem;">Connexion</a>
             </c:if>
         </div>
     </nav>
@@ -123,7 +123,7 @@
             
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="/projet-star-wars/vaisseaux" class="btn-primary secondary">← Retour au catalogue</a>
-                <c:if test="${not empty pageContext.request.userPrincipal}">
+                <c:if test="${not empty sessionScope.user and sessionScope.user.role == 'ADMIN'}">
                     <a href="/projet-star-wars/admin/vaisseaux" class="btn-primary">🛠️ Modifier (Admin)</a>
                 </c:if>
             </div>
