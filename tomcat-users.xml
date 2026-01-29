@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users xmlns="http://tomcat.apache.org/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd" version="1.0">
+  <!--
+    NOTE:  By default, no user is included in the "manager-gui" or "manager-script"
+    roles.  If you wish to use these roles, you must define them in this file and
+    assign them to one or more users.
+  -->
+  <!--
+    NOTE:  The sample user and role entries below are wrapped in a comment
+    and thus are ignored when reading this file. Do not forget to remove
+    <!.. ..> that wraps them when you want to activate any of them. To
+    learn how to configure these users and roles, read the Tomcat Manager
+    HOW-TO at /docs/manager-howto.html
+  -->
+  <!--
+    <role rolename="tomcat"/>
+    <role rolename="role1" />
+    <user username="tomcat" password="tomcat" roles="tomcat"/>
+    <user username="both" password="tomcat" roles="tomcat,role1"/>
+    <user username="role1" password="tomcat" roles="role1"/>
+  -->
+  <!-- Utilisateurs admin pour Star Wars -->
+  <role rolename="admin"/>
+  <user username="admin" password="admin123" roles="admin"/>
+  <user username="lucas" password="password" roles="admin"/>
+</tomcat-users>
